@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    book_list
+{% endblock %}
+
+{% block context %}
+    <div class="row">
+    {% for i in object_list %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ i.bookimage.url }}" class="card-img-top" alt="{{ i.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ i.title }}</h5>
+                    <p class="card-text">{{ i.author }}</p>
+                    <p class="card-text">{{ i.publisher }}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

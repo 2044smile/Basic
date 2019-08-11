@@ -1,0 +1,29 @@
+{# CreateView#}
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    book_create
+{% endblock %}
+
+{% block context %}
+<section id="cover">
+    <div id="cover-caption">
+        <div id="container" class="container">
+            <div class="row text-black">
+                <div class="col-sm-6 offset-sm-3 text-center">
+                    <h1 class="display-4">Create</h1>
+                    <div class="info-form">
+                        <form action="" class="form-inlin justify-content-center" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <input type="submit" class="btn btn-success " value="Save">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
