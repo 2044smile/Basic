@@ -1,3 +1,5 @@
-# Basic
+# Installed
 
-book_list.html 
+* pip install django-ckeditor
+https://www.opentutorials.org/module/4034/24914
+
