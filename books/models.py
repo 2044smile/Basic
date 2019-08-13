@@ -5,7 +5,7 @@ class Book(models.Model):
     author = models.CharField(max_length=30)
     text = models.TextField(max_length=500)
     publisher = models.CharField(max_length=100)
-    bookimage = models.ImageField(upload_to='images/',default='none.jpg')
+    bookimage = models.ImageField(upload_to='images/',default='images/none.jpg')
 
     def __str__(self):
         return self.title

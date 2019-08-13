@@ -20,7 +20,7 @@ def login(request):
 
         if user:
             dj_login(request, user) # user 객체로 로그인해라
-            return render(request, 'books/index.html',{'user':user})
+            return render(request, 'books/index.html',{'b_list':user})
         else:
             return render(request, 'account/login.html',{'form':form, 'error':'ID or Password Not Matched!!'})
 

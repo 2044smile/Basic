@@ -10,8 +10,7 @@
 <form action="{% url 'login' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-
-    <button type="submit">로그인</button>
+    <input type="submit" value="로그인">
 </form>
     </center>
 {% endblock %}

@@ -8,22 +8,29 @@
 {% endblock %}
 
 {% block context %}
-<section id="cover">
-    <div id="cover-caption">
-        <div id="container" class="container">
-            <div class="row text-black">
-                <div class="col-sm-6 offset-sm-3 text-center">
-                    <h1 class="display-4">Create</h1>
-                    <div class="info-form">
-                        <form action="" class="form-inli justify-content-center" method="post">
-                            {% csrf_token %}
-                            {{ form|crispy }}
-                            <input type="submit" class="btn btn-success " value="Save">
-                        </form>
+    {% if user.is_authenticated %}
+
+    <section id="cover">
+        <div id="cover-caption">
+            <div id="container" class="container">
+                <div class="row text-black">
+                    <div class="col-sm-6 offset-sm-3 text-center">
+                        <h1 class="display-4">Create</h1>
+                        <div class="info-form">
+                            <form action="" class="form-inli justify-content-center" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <input type="submit" class="btn btn-success " value="Save">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+        {% else %}
+        <center>
+        <h1>로그인 후 이용할 수 있습니다.</h1>
+        </center>
+    {% endif %}
 {% endblock %}
