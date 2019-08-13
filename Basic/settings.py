@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'books',
-    'ckeditor'
+    'account',
+    'ckeditor',
+
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = '/account/login'
+LOGOUT_URL = '/account/logout'
+LOGIN_REDIRECT_URL = '/'

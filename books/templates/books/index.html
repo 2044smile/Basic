@@ -1,21 +1,13 @@
 {% extends 'base.html' %}
 
 {% block context %}
-    <style>
-    h1,h2,h3{
-        border-style: solid;
-        border-color: aqua;
-        margin-top:100px;
-    }
-    .index{
 
-    }
-    </style>
     <center>
-    <div class="index">
-    <h1>Index</h1>
-        <h2>Page</h2>
-        <h3>Hi!</h3>
+    {% if user.is_authenticated %}
+        <h1>{{ user.username }}님. 접속을 환영합니다. </h1>
+        <h2>읽은 책들을 저장하는 사이트입니다.</h2>
+        {% else %}
+        <h1>로그인 후 이용할 수 있습니다.</h1>
     </center>
-    </div>
+    {% endif %}
 {% endblock %}

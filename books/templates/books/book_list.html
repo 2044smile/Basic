@@ -5,7 +5,7 @@
     book_list
 {% endblock %}
 {% block style %}
-    li {
+    ul li {
         border-style: solid;
         margin-top: 5px;
         margin-left: 5px;
@@ -14,6 +14,7 @@
     }
 {% endblock %}
 {% block context %}
+    {% if user.is_authenticated %}
     {% for i in object_list %}
         <ul class="list-unstyled">
             <li class="media">
@@ -24,25 +25,12 @@
                             {{ i.publisher }}<br><br>
                             {{ i.text }}
                     </div>
-                <form action="{% url 'update' pk=i.id%}" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <input type="submit" class="btn btn-success" value="Modify">
-                </form>
-                <form action="{% url 'delete' pk=i.id %}" method="post">
-                    {% csrf_token %}
-                    <input type="submit" class="btn btn-danger" value="Delete">
-                </form>
+                <a href="{% url 'update' pk=i.id %}" class="btn btn-success">Modify</a>
+                <a href="{% url 'delete' pk=i.id %}" class="btn btn-danger">Delete</a>
             </li>
-
         </ul>
-{#        <div class="card" style="width: 18rem;">#}
-{#            <img src="{{ i.bookimage.url }}" class="card-img-top" alt="{{ i.title }}">#}
-{#                <div class="card-body">#}
-{#                    <h5 class="card-title">{{ i.title }}</h5>#}
-{#                    <p class="card-text">{{ i.author }}</p>#}
-{#                    <p class="card-text">{{ i.publisher }}</p>#}
-{#                    <a href="{% url 'detail' pk=i.id %}" class="btn btn-primary">Modified</a>#}
-{#            </div>#}
-{#        </div>#}
     {% endfor %}
+        {% elsf %}
+        <h1>로그인 후 이용할 수 있습니다.</h1>
+    {% endif %}
 {% endblock %}
