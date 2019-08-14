@@ -15,26 +15,22 @@
 {% endblock %}
 {% block context %}
     {% if user.is_authenticated %}
-        {% for i in b_list %}
-            <ul class="list-unstyled">
-                <li class="media">
-                    <img src="{{ i.bookimage.url }}" class="mr-3" alt="...">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">{{ i.title }}</h5>
-                                {{ i.author }}<br>
-                                {{ i.publisher }}<br><br>
-                                {{ i.text }}
-                        </div>
-                    <a href="{% url 'update' pk=i.id %}" class="btn btn-success">Modify</a>
-                    <form action="{% url 'delete' pk=i.id %}" method="post">
-                        <input type="submit" value="Delete" class="btn btn-danger">
-                    </form>
-                </li>
-            </ul>
-        {% endfor %}
-        {% else %}
-        <center>
+    {% for i in object_list %}
+        <ul class="list-unstyled">
+            <li class="media">
+                <img src="{{ i.bookimage.url }}" class="mr-3" alt="...">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">{{ i.title }}</h5>
+                            {{ i.author }}<br>
+                            {{ i.publisher }}<br><br>
+                            {{ i.text }}
+                    </div>
+                <a href="{% url 'update' pk=i.id %}" class="btn btn-success">Modify</a>
+                <a href="{% url 'delete' pk=i.id %}" class="btn btn-danger">Delete</a>
+            </li>
+        </ul>
+    {% endfor %}
+        {% elsf %}
         <h1>로그인 후 이용할 수 있습니다.</h1>
-        </center>
     {% endif %}
 {% endblock %}
