@@ -17,11 +17,8 @@ class BookListView(ListView):
 class BookCreateView(CreateView):
     model = Book
     success_url = reverse_lazy('list')
+    template_name = 'books/book_create.html'
     form_class = BookForm
-
-    def create(self):
-        if not self.user.is_authenticated():
-            return redirect(settings.LOGIN_URL)
 
 class BookUpdateView(UpdateView):
     model = Book
