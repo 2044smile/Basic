@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block context %}
+    {% if user.is_authenticated %}
 <section id="cover">
     <div id="cover-caption">
         <div id="container" class="container">
@@ -26,4 +27,9 @@
         </div>
     </div>
 </section>
+    {% else %}
+        <center>
+        <h1>로그인 후 이용할 수 있습니다.</h1>
+        </center>
+    {% endif %}
 {% endblock %}

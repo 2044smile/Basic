@@ -2,6 +2,8 @@
 {% block style %}
 {% endblock %}
 {% block context %}
+
+
     <center>
         <br>
 <h1>Login</h1>
@@ -10,8 +12,8 @@
 <form action="{% url 'login' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-
     <button type="submit">로그인</button>
 </form>
+    {{ test }}
     </center>
 {% endblock %}
