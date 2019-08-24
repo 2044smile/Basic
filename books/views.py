@@ -1,11 +1,9 @@
-from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.utils import timezone
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .forms import BookForm
-from django.conf import settings
-
 from .models import Book
+
 
 def index(request):
     return render(request, 'books/index.html')

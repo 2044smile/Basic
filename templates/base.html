@@ -1,56 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <style>
         {% block style %}
         {% endblock %}
-  
+
     </style>
     <title>
         {% block title %}
         {% endblock %}
     </title>
 </head>
-<body style="background-color: #6F2F01">
-    {% block nav %}
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <a class="navbar-brand" href="/">Book-History</a>
-            <a class="nav-link" href="{% url 'list' %}">BookList</a>
-            <a class="nav-link" href="{% url 'create' %}">Create</a>
-            <li class="nav-item dropdown" style="list-style:none;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
-             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                 <a class="dropdown-item" href="https://newbiecs.tistory.com/" target="_blank">Blog</a>
-                 <a class="dropdown-item" href="https://github.com/2044smile" target="_blank">Github</a>
-             </div>
-            </li>
-            <li class="nav-item dropdown" style="list-style:none;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Accounts</a>
-                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                     {% if user.is_authenticated %} {# 유저가 로그인 중이면 #}
-                     <a class="dropdown-item" href="{% url 'logout' %}" onclick="alert('로그아웃 되었습니다.')")>Logout</a>
-                     {% else %}
-                     <a class="dropdown-item" href="{% url 'login' %}">Login</a>
-                     {% endif %}
-                    <a class="dropdown-item" href="{% url 'signup' %}">Signup</a>
-                  </div>
-             </li>
+<body>{# style="background-color: #6F2F01"#}
+{% block nav %}
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="/">Book-History</a>
+        <a class="nav-link" href="{% url 'list' %}">BookList</a>
+        <a class="nav-link" href="{% url 'create' %}">Create</a>
+        <li class="nav-item dropdown" style="list-style:none;">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">Contact</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="https://newbiecs.tistory.com/" target="_blank">Blog</a>
+                <a class="dropdown-item" href="https://github.com/2044smile" target="_blank">Github</a>
+            </div>
+        </li>
+{#    <a class="nav-link" href="logintest.html">Login</a>#}
+{#        <li class="nav-item dropdown" style="list-style:none;">#}
+{#            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"#}
+{#               aria-haspopup="true" aria-expanded="false">#}
+{#                Accounts</a>#}
+{#            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
+{#                {% if user.is_authenticated %} {# 유저가 로그인 중이면 #}
+{#                    <a class="dropdown-item" href="{% url 'logout' %}" onclick="alert('로그아웃 되었습니다.')" )>Logout</a>#}
+{#                {% else %}#}
+{#                    <a class="dropdown-item" href="{% url 'login' %}">Login</a>#}
+{#                    <a class="dropdown-item" href="{% url 'signup' %}">Signup</a>#}
+{#                {% endif %}#}
+{##}
+{#            </div>#}
+{#        </li>#}
 
-            {% if user.is_authenticated %}
-                <div class="nav navbar-nav navbar-right">
-            <a href="#" class="right_id">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ user.username }}님이 로그인 중 입니다.</a>
-                </div>
+        {% if user.is_authenticated %}
+            <div class="nav navbar-nav navbar-right">
+                <a href="#"
+                   class="right_id">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ user.username }}님이
+                    로그인 중 입니다.</a>
+            </div>
         {% endif %}
-
-        </nav>
-    {% endblock %}
-    {% block context %}
-    {% endblock %}
+    </nav>
+{% endblock %}
+{% block context %}
+<ul>
+<li class="nav-item">
+{#       {% if user.is_authenticated %} {# 유저가 로그인 중이면 #}
+       <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
+{#       {% else %}#}
+       <a href="{% url 'account_login' %}" class="nav-link">Login</a>
+{#       {% endif %}#}
+</li>
+</ul>
+{% endblock %}
 </body>
 </html>
